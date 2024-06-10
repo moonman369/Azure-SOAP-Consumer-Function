@@ -17,10 +17,12 @@ namespace Moonman.Function
     public class SOAPConsumerHttpTrigger1
     {
         private readonly ILogger<SOAPConsumerHttpTrigger1> _logger;
+        private readonly HttpClient _client;
 
-        public SOAPConsumerHttpTrigger1(ILogger<SOAPConsumerHttpTrigger1> logger)
+        public SOAPConsumerHttpTrigger1(ILogger<SOAPConsumerHttpTrigger1> logger, HttpClient client)
         {
             _logger = logger;
+            _client = client;
         }
 
         // public HttpWebRequest CreateSOAPWebRequest()
@@ -116,13 +118,14 @@ namespace Moonman.Function
             // return new OkObjectResult($"{numFromQuery} in words is {result.Body.NumToWordsResult}");
 
 
-            HttpClient client = new()
-            {
-                BaseAddress = new Uri("https://soapwebservice0.azurewebsites.net/NumToWords.asmx")
-            };
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
-            client.DefaultRequestHeaders.Add("SOAPAction", "http://tempuri.org/ISOAPService/NumToWords");
+            // HttpClient client = new()
+            // {
+            //     BaseAddress = new Uri("https://soapwebservice0.azurewebsites.net/NumToWords.asmx")
+            // };
+            _client.BaseAddress = new Uri("https://soapwebservice0.azurewebsites.net/NumToWords.asmx");
+            _client.DefaultRequestHeaders.Accept.Clear();
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
+            _client.DefaultRequestHeaders.Add("SOAPAction", "http://tempuri.org/ISOAPService/NumToWords");
 
             NumToWords numToWords = new()
             {
@@ -146,9 +149,10 @@ namespace Moonman.Function
             _logger.LogInformation(xmlString.ToString());
 
             HttpContent xmlContent = new StringContent(xmlString.ToString(), Encoding.UTF8, "text/xml");
-            var response = await client.PostAsync("", xmlContent);
+            var response = await _client.PostAsync("", xmlContent);
+            _logger.LogInformation(response.Content.ReadAsStringAsync().Result);
 
-            return new OkObjectResult(response.Content.ReadAsStringAsync());
+            return new OkObjectResult(response.Content.ReadAsStringAsync().Result);
 
 
         }
