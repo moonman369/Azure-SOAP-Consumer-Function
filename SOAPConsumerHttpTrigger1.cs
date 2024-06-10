@@ -108,7 +108,7 @@ namespace Moonman.Function
 
             if (numFromQuery == null)
             {
-                return new ObjectResult("Please provide valid number in query params");
+                return new BadRequestObjectResult("Please provide valid number in query params");
             }
 
             // var result = await client.NumToWordsAsync(int.Parse(numFromQuery ?? "0"));
