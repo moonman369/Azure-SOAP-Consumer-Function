@@ -14,3 +14,5 @@
     </DataCollectionRunSettings>
 </RunSettings>
 
+E:\moonman\Azure\Functions-Apps\SOAPConsumeFunction0\XUnit.Coverlet.Collector\TestResults\c880974d-b2a2-4705-b496-b99b2de90258
+reportgenerator -reports:"TestResults\c880974d-b2a2-4705-b496-b99b2de90258\coverage.cobertura.xml" -targetdir:"coveragereport"

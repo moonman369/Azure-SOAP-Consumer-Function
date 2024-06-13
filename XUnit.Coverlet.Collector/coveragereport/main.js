@@ -229,15 +229,14 @@ var assemblies = [
       { "name": "Moonman.SOAP.Utf8StringWriter", "rp": "SOAPConsumeFunction0_Utf8StringWriter.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 54, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Moonman.UnitTests.FunctionUnitTests", "rp": "SOAPConsumeFunction0_FunctionUnitTests.html", "cl": 0, "ucl": 29, "cal": 29, "tl": 85, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Program", "rp": "SOAPConsumeFunction0_Program.html", "cl": 0, "ucl": 10, "cal": 10, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "ServiceReference.NumToWordsRequest", "rp": "SOAPConsumeFunction0_NumToWordsRequest.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 212, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "ServiceReference.NumToWordsRequestBody", "rp": "SOAPConsumeFunction0_NumToWordsRequestBody.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 212, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "ServiceReference.NumToWordsResponse", "rp": "SOAPConsumeFunction0_NumToWordsResponse.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 212, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "ServiceReference.NumToWordsResponseBody", "rp": "SOAPConsumeFunction0_NumToWordsResponseBody.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 212, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "ServiceReference.SOAPServiceClient", "rp": "SOAPConsumeFunction0_SOAPServiceClient.html", "cl": 0, "ucl": 55, "cal": 55, "tl": 212, "cb": 0, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "ServiceReference.NumToWordsRequest", "rp": "SOAPConsumeFunction0_NumToWordsRequest.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 216, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "ServiceReference.NumToWordsResponse", "rp": "SOAPConsumeFunction0_NumToWordsResponse.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 216, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "ServiceReference.NumToWordsResponseBody", "rp": "SOAPConsumeFunction0_NumToWordsResponseBody.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 216, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "ServiceReference.SOAPServiceClient", "rp": "SOAPConsumeFunction0_SOAPServiceClient.html", "cl": 0, "ucl": 55, "cal": 55, "tl": 216, "cb": 0, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
-var metrics = [{ "name": "Cyclomatic complexity", "abbreviation": "cc", "explanationUrl": "https://en.wikipedia.org/wiki/Cyclomatic_complexity" }, { "name": "NPath complexity", "abbreviation": "npth", "explanationUrl": "https://modess.io/npath-complexity-cyclomatic-complexity-explained" }, { "name": "Sequence coverage", "abbreviation": "seq", "explanationUrl": "https://en.wikipedia.org/wiki/Code_coverage" }, { "name": "Branch coverage", "abbreviation": "bcov", "explanationUrl": "https://en.wikipedia.org/wiki/Code_coverage" }];
+var metrics = [{ "name": "Crap Score", "abbreviation": "crp", "explanationUrl": "https://googletesting.blogspot.de/2011/02/this-code-is-crap.html" }, { "name": "Cyclomatic complexity", "abbreviation": "cc", "explanationUrl": "https://en.wikipedia.org/wiki/Cyclomatic_complexity" }, { "name": "Line coverage", "abbreviation": "cov", "explanationUrl": "https://en.wikipedia.org/wiki/Code_coverage" }, { "name": "Branch coverage", "abbreviation": "bcov", "explanationUrl": "https://en.wikipedia.org/wiki/Code_coverage" }];
 
 var historicCoverageExecutionTimes = [];
 
