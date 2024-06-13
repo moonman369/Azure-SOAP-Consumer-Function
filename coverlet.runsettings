@@ -1,0 +1,16 @@
+<RunSettings>
+    <DataCollectionRunSettings>
+        <DataCollectors>
+            <DataCollector friendlyName="XPlat code coverage">
+                <Configuration>
+                    <Format>cobertura</Format>
+                    <Exclude>
+                        <ModulePath>Microsoft.*.dll</ModulePath>
+                    </Exclude>
+                    <!--<Exclude>[*Testing*]*</Exclude>  [Assembly-Filter]Type-Filter -->
+                </Configuration>
+            </DataCollector>
+        </DataCollectors>
+    </DataCollectionRunSettings>
+</RunSettings>
+
