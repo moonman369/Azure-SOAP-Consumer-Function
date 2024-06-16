@@ -4,9 +4,7 @@
             <DataCollector friendlyName="XPlat code coverage">
                 <Configuration>
                     <Format>cobertura</Format>
-                    <Exclude>
-                        <ModulePath>Microsoft.*.dll</ModulePath>
-                    </Exclude>
+                    <ExcludeByFile>..\Microsoft.NET.Test.Sdk.Program.cs</ExcludeByFile>
                     <!--<Exclude>[*Testing*]*</Exclude>  [Assembly-Filter]Type-Filter -->
                 </Configuration>
             </DataCollector>
@@ -14,5 +12,3 @@
     </DataCollectionRunSettings>
 </RunSettings>
 
-E:\moonman\Azure\Functions-Apps\SOAPConsumeFunction0\XUnit.Coverlet.Collector\TestResults\c880974d-b2a2-4705-b496-b99b2de90258
-reportgenerator -reports:"TestResults\c880974d-b2a2-4705-b496-b99b2de90258\coverage.cobertura.xml" -targetdir:"coveragereport"

@@ -6,6 +6,9 @@ using Moonman.Function;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Moonman.SOAP;
+using System.Xml.Serialization;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Moonman.UnitTests
 {
@@ -14,6 +17,7 @@ namespace Moonman.UnitTests
         private readonly Mock<ILogger<SOAPConsumerHttpTrigger1>> _mockLogger;
         private readonly Mock<HttpMessageHandler> _mockMessageHandler;
 
+        [ExcludeFromCodeCoverage]
         public FunctionUnitTests()
         {
             _mockLogger = new Mock<ILogger<SOAPConsumerHttpTrigger1>>();
@@ -21,6 +25,7 @@ namespace Moonman.UnitTests
         }
 
         [Fact]
+        [ExcludeFromCodeCoverage]
         public async Task Run_Should_Return_OkResult()
         {
             // Arrange
@@ -52,6 +57,7 @@ namespace Moonman.UnitTests
 
 
         [Fact]
+        [ExcludeFromCodeCoverage]
         public async Task Run_Should_Return_BadRequestResult()
         {
             // Arrange
@@ -79,7 +85,42 @@ namespace Moonman.UnitTests
             var result = Assert.IsType<BadRequestObjectResult>(response);
             Assert.Equal("Please provide valid number in query params", result.Value);
         }
-    }
 
+
+        [Theory]
+        [InlineData("12")]
+        [ExcludeFromCodeCoverage]
+        public void Test_SOAP_Envelope_Creator_Classes(string num)
+        {
+            string expectedXml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <Body>\n    <NumToWords xmlns=\"http://tempuri.org/\">\n      <num>12</num>\n    </NumToWords>\n  </Body>\n</Envelope>";
+
+            NumToWords numToWords = new()
+            {
+                Num = int.Parse(num ?? "0")
+            };
+
+            SoapBody soapBody = new()
+            {
+                Content = numToWords
+            };
+
+            SoapEnvelope soapEnvelope = new()
+            {
+                Body = soapBody
+            };
+
+            XmlSerializer xSer = new(typeof(SoapEnvelope));
+            var xmlString = new Utf8StringWriter();
+            xSer.Serialize(xmlString, soapEnvelope);
+            // Console.WriteLine(xmlString.ToString());
+            _mockLogger.Object.LogInformation(xmlString.ToString());
+
+            Assert.Equal(xmlString.ToString().Replace("\r", ""), expectedXml);
+
+        }
+
+
+
+    }
 
 }

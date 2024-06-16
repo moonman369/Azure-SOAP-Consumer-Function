@@ -3,5 +3,15 @@
   "azureFunctions.projectLanguage": "C#",
   "azureFunctions.projectRuntime": "~4",
   "debug.internalConsoleOptions": "neverOpen",
-  "azureFunctions.preDeployTask": "publish (functions)"
+  "azureFunctions.preDeployTask": "publish (functions)",
+  "coverage-gutters.coverageBaseDir": "**",
+  "coverage-gutters.coverageReportFileName": "**/index.html",
+  "coverage-gutters.coverageFileNames": [
+    "coverage.opencover.xml",
+    "lcov.info",
+    "cov.xml",
+    "coverage.xml",
+    "jacoco.xml",
+    "coverage.cobertura.xml"
+  ]
 }
